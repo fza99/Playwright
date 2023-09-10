@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-
 test('test', async ({ page }) => {
    
  
@@ -19,7 +18,11 @@ test('test', async ({ page }) => {
     
     // Upload profile photo
     await page.getByText("Importer une image").click();
-    
+    await page
+        .getByText("Importer une image")
+        .setInputFiles('images.png');
+
+
     // Click on "Enregistrer" button
     await page.getByText('Enregistrer').click();
 
